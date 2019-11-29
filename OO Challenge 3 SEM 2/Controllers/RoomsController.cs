@@ -26,7 +26,7 @@ namespace OO_Challenge_3_SEM_2.Controllers
         [Route("api/Rooms/Unused")]
         public List<Room> GetUnusedRooms()
         {
-            
+            db.Configuration.LazyLoadingEnabled = true;
             List<Room> Rooms = new List<Room>();
 
             foreach (Room room in db.Rooms)
@@ -37,7 +37,7 @@ namespace OO_Challenge_3_SEM_2.Controllers
                 }
             }
 
-
+            db.Configuration.LazyLoadingEnabled = false;
             return Rooms;
         }
 
